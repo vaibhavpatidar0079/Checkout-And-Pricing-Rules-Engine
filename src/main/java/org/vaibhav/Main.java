@@ -9,6 +9,5 @@ import static org.vaibhav.Menu.makeUser;
 public class Main {
     static void main() {
         User user = makeUser();
-
     }
 }

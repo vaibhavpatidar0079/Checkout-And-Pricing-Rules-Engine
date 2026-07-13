@@ -8,4 +8,13 @@ public class User {
         this.name = name;
         this.type = type;
     }
+
+    String getType(){
+        return switch (type){
+            case 0 ->  "Regular";
+            case 1->  "Silver";
+            case 2->  "Gold";
+            default -> null;
+        };
+    }
 }
