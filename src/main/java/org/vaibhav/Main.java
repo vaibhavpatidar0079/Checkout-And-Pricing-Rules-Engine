@@ -1,13 +1,16 @@
-package org.vaibhav;
+ package org.vaibhav;
 
-import java.util.ArrayList;
+import org.vaibhav.cart.Cart;
+import org.vaibhav.cart.Item;
+
 import java.util.List;
-import java.util.Scanner;
 
 import static org.vaibhav.Menu.makeUser;
 
 public class Main {
     static void main() {
         User user = makeUser();
+        Cart cart = new Cart();
+
     }
 }

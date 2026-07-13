@@ -1,9 +1,12 @@
 package org.vaibhav;
 
+import org.vaibhav.cart.Item;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
-
     static int takeTypeInput(){
         Scanner sc = new Scanner(System.in);
 
@@ -34,13 +37,57 @@ public class Menu {
         System.out.println("account created");
         System.out.println("Name: "+ u.name);
         System.out.println("Account type: "+ u.getType());
+        System.out.println("-".repeat(60));
 
         return new User(name, type);
 
     }
-    static void printMenuType(){
+    public static String[] TakeCartInput(){
+        Scanner sc  = new Scanner(System.in);
+        String inputString = sc.nextLine();
+        return inputString.split(" ");
+    }
+
+    public static List<Item> AddToCart(String[] input,List<Item> itemsOption){
+        List<Item> itemList = new ArrayList<>();
+
+        for(String i: input){
+            int inx = Integer.parseInt(i);
+            if(inx >= 1 && inx <= itemsOption.size()){
+                itemList.add(itemsOption.get(inx - 1));
+            }else{
+                return List.of();
+            }
+        }
+        return itemList;
 
     }
 
+    public static List<Item> makeCart(List<Item> itemsOption) {
+        List<Item> itemList = new ArrayList<>();
 
+        System.out.println("-".repeat(60));
+
+
+
+        while(itemList.isEmpty()){
+
+            System.out.println("Choose item(s) (multiple inputs allowed sepreted by comma):");
+            for(int inx = 0;inx < itemsOption.size(); inx++){
+                System.out.println(inx+1 + ". " + itemsOption.get(inx).getName() + ": " + itemsOption.get(inx).getPrice());
+            }
+
+            itemList = AddToCart(TakeCartInput(),itemsOption);
+
+            if(itemList.isEmpty()){
+                System.out.println("-".repeat(60));
+                System.out.println("enter valid number");
+                System.out.println("-".repeat(60));
+            }
+        }
+        System.out.println("-".repeat(60));
+
+        return itemList;
+
+    }
 }
