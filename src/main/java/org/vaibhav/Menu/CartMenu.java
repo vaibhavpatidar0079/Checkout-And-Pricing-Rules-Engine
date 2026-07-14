@@ -1,5 +1,6 @@
 package org.vaibhav.Menu;
 
+import org.vaibhav.User;
 import org.vaibhav.cart.Cart;
 import org.vaibhav.cart.Item;
 import org.vaibhav.cart.Stock;
@@ -32,7 +33,7 @@ public class CartMenu {
 
     }
 
-    public static Cart makeCart() {
+    public static void makeCart(User user) {
         Cart cart = new Cart();
 
         List<Item> itemsOption = Stock.getItemsOption();
@@ -60,6 +61,13 @@ public class CartMenu {
         for(Item i: itemList){
             cart.addItem(i);
         }
-        return cart;
+
+        user.setCart(cart);
+
+        System.out.println("Items added to cart: ");
+        for(Item i: user.getCart().getItems()){
+            System.out.println(i.getName() + ": " + i.getPrice());
+        }
+        System.out.println("Your subtotal is: " + user.getCart().getSubTotal());
     }
 }

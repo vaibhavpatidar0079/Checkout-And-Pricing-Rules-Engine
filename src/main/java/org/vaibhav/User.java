@@ -1,8 +1,11 @@
 package org.vaibhav;
 
+import org.vaibhav.cart.Cart;
+
 public class User {
     private String name;
     private int type; //0 = regular, 1 = silver, 3 = gold
+    private Cart cart;
 
     public User(String name, int type){
         this.name = name;
@@ -32,5 +35,12 @@ public class User {
             throw new IllegalArgumentException();
         }
         this.type = type;
+    }
+    public Cart getCart(){
+        return cart;
+    }
+
+    public void setCart(Cart cart){
+        this.cart = cart;
     }
 }

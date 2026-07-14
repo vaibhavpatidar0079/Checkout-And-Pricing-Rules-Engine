@@ -11,7 +11,6 @@ import java.util.List;
 public class Main {
     static void main() {
         User user = UserMenu.makeUser();
-        Cart cart = CartMenu.makeCart();
-
+        CartMenu.makeCart(user);
     }
 }
