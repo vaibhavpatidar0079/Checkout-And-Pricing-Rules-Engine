@@ -8,15 +8,26 @@ public class User {
     private int type; //0 = regular, 1 = silver, 3 = gold
     private Cart cart;
 
-    public User(String name, int type){
-        this.name = name;
-        this.type = type;
-    }
-
+    //name
     public String getName(){
         return this.name;
     }
 
+    public void setName(String name){
+        if(!name.isEmpty()) this.name = name;
+        else{
+            throw new IllegalArgumentException();
+        }
+    }
+    //age
+    public void setAge(int age){
+        if(age > 0) this.age = age;
+        else throw new IllegalArgumentException("age can not be 0 or negative");
+    }
+    public int getAge(){
+        return age;
+    }
+    //type
     public String getType(){
         return switch (type){
             case 0 ->  "Regular";
@@ -25,18 +36,14 @@ public class User {
             default -> null;
         };
     }
-    public void setName(String name){
-        if(!name.isEmpty()) this.name = name;
-        else{
-            throw new IllegalArgumentException();
-        }
-    }
     public void setType(int type){
         if(type < 0 || type > 2){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("only allowed input are 0, 1, 2");
         }
         this.type = type;
     }
+
+    //cart
     public Cart getCart(){
         return cart;
     }
@@ -44,11 +51,5 @@ public class User {
     public void setCart(Cart cart){
         this.cart = cart;
     }
-    public void setAge(int age){
-        if(age > 0) this.age = age;
-        else throw new IllegalArgumentException();
-    }
-    public int getAge(){
-        return age;
-    }
+
 }
