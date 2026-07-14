@@ -2,7 +2,7 @@ package org.vaibhav.cart;
 
 public class Item {
     String name;
-    int price;
+    double price;
 
     public Item(String name, int price){
         this.name = name;
@@ -12,7 +12,7 @@ public class Item {
     public String getName(){
         return this.name;
     }
-    public int getPrice(){
+    public double getPrice(){
         return this.price;
     }
 }
