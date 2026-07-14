@@ -16,12 +16,27 @@ public class UserMenu {
 
         return sc.nextInt();
     }
+    private static int takeAgeInput(){
+        System.out.println("Enter your age:");
+        Scanner sc = new Scanner(System.in);
 
+        return sc.nextInt();
+
+    }
     public static User makeUser(){
+        //name
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter your name: ");
         String name = sc.nextLine();
 
+        //age
+        int age = takeAgeInput();
+        while(age <= 0){
+            System.out.println("Age can't be 0 or negative");
+            age = takeAgeInput();
+        }
+
+        //type
         int typeInput = takeTypeInput();
 
         while(typeInput < 1 || typeInput > 3 ) { //input start from 1 but in DataBase it start from 0

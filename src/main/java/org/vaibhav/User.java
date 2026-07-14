@@ -4,6 +4,7 @@ import org.vaibhav.cart.Cart;
 
 public class User {
     private String name;
+    private int age;
     private int type; //0 = regular, 1 = silver, 3 = gold
     private Cart cart;
 
@@ -42,5 +43,12 @@ public class User {
 
     public void setCart(Cart cart){
         this.cart = cart;
+    }
+    public void setAge(int age){
+        if(age > 0) this.age = age;
+        else throw new IllegalArgumentException();
+    }
+    public int getAge(){
+        return age;
     }
 }
