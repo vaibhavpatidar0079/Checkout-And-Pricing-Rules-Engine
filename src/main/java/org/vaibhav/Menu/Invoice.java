@@ -7,14 +7,14 @@ public class Invoice {
         Double total = 0.0;
 
         System.out.println("-".repeat(60));
-        System.out.println(subTotal);
-        System.out.println("-".repeat(60));
+        System.out.println("Sub Total: " + subTotal);
+        System.out.println("-".repeat(30));
 
         for(Map.Entry<String,Double> i:invoice.entrySet()){
             System.out.println(i.getKey() + " : " + i.getValue());
             total += i.getValue();
         }
-        System.out.println("-".repeat(60));
+        System.out.println("-".repeat(30));
         System.out.println("Total: " + total);
         System.out.println("-".repeat(60));
     }
