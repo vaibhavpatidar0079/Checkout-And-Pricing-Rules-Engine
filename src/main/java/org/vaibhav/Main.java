@@ -1,5 +1,6 @@
  package org.vaibhav;
 
+import org.vaibhav.Checkout.Checkout;
 import org.vaibhav.Menu.CartMenu;
 import org.vaibhav.Menu.UserMenu;
 import org.vaibhav.cart.Cart;
@@ -12,5 +13,6 @@ public class Main {
     static void main() {
         User user = UserMenu.makeUser();
         CartMenu.makeCart(user);
+        Checkout.doCheckout(user);
     }
 }

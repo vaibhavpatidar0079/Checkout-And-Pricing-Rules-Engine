@@ -7,8 +7,10 @@ public class MembershipDiscount {
     static double silverDiscount = 5.0/100;
     static double goldDiscount = 10.0/100;
 
-    public static double applyMembershipDiscount(User user, int cost){
-        if(user.getType().equals("silver")){
+    public static double getDiscount(User user){
+        double cost = user.getCart().getSubTotal();
+
+        if(user.getType().equals("Silver")){
             return cost * silverDiscount;
         }else if(user.getType().equals("Gold")){
             return cost * goldDiscount;

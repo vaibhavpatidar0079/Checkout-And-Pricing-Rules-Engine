@@ -2,6 +2,7 @@ package org.vaibhav.cart;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class Cart {
@@ -19,6 +20,13 @@ public class Cart {
 
     public double getSubTotal(){
         return subTotal;
+    }
+
+    public Optional<Item> contains(String name){
+        for(Item i: items){
+            if(i.getName().equals(name)) return Optional.of(i);
+        }
+        return Optional.empty();
     }
 
 }

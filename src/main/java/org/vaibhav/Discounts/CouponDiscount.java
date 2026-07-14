@@ -14,6 +14,11 @@ public class CouponDiscount {
     public static double getDiscount(String s){
         if(discounts.get(s) != null){
             return discounts.get(s);
-        }else throw new IllegalArgumentException();
+        }else throw new IllegalArgumentException("Coupon " + s + " is Invalid");
+    }
+    public static boolean isValid(String s){
+        if(discounts.get(s) != null) {
+            return true;
+        }else return false;
     }
 }

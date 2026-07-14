@@ -8,7 +8,8 @@ public class Stock {
             new Item("Laptop",60000),
             new Item("Mobile",20000),
             new Item("Tablet",30000),
-            new Item("Watch",5000)
+            new Item("Watch",5000),
+            new Item("Drink",100)
     ));
 
     public void add(String name, int price){
